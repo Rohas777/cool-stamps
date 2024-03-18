@@ -1811,6 +1811,9 @@ template {
     font-family: "Roboto";
     font-size: 24px;
 }
+.contacts__socials-text a {
+    color: inherit;
+}
 
 @media screen and (max-width: 992px) {
     .contacts__socials-text {

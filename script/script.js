@@ -21,17 +21,19 @@ $(".header__menu-list-item, .header__menu-button-mobile").click(function () {
 
 $(".popup_btn").click(function () {
     popup.slideDown(300);
-    overlay.toggle().animate({
+    overlay.show().animate({
         opacity: 0.4,
     });
     $("body, html").css("overflow", "hidden");
+    addClickOutsideHandler();
 });
 $(".form__close-button").click(function () {
     popup.slideToggle(300);
-    overlay.toggle().animate({
+    overlay.hide().animate({
         opacity: 0,
     });
     $("body, html").css("overflow", "auto");
+    removeClickOutsideHandler();
 });
 $(".reviews__blocks.owl-carousel").owlCarousel({
     items: 3,
@@ -51,3 +53,25 @@ $(".reviews__blocks.owl-carousel").owlCarousel({
         },
     },
 });
+
+const handleClickOutside = (event) => {
+
+    if (!$(event.target).closest(popup).length) {
+        popup.slideUp(300)
+        overlay.hide().animate({
+            opacity: 0,
+        });
+        $("body, html").css("overflow", "auto");
+        removeClickOutsideHandler();
+    }
+}
+
+function addClickOutsideHandler() {
+    setTimeout(function() {
+        $(document).on('click', handleClickOutside);
+    }, 100);
+}
+
+function removeClickOutsideHandler() {
+    $(document).off('click', handleClickOutside);
+}
