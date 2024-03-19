@@ -967,13 +967,18 @@ template {
     cursor: pointer;
 }
 
-.services__blocks-item:hover {
-    outline: 10px solid #117630;
-}
-.services__blocks-item:hover .services__blocks-button {
-    background-color: #117630;
-    color: #fff;
-    border: none;
+@media (hover: hover) {
+    .services__blocks-item:hover {
+        outline: 10px solid #117630;
+    }
+    .services__blocks-item:hover .services__blocks-button {
+        background-color: #117630;
+        color: #fff;
+        border: 1px solid #117630;
+    }
+    .services__blocks-item:hover .services__image img {
+        transform: scale(1.05);
+    }
 }
 @media screen and (max-width: 1290px) {
     .services__blocks-item {
@@ -1007,9 +1012,6 @@ template {
     object-fit: cover;
     object-position: center center;
     transition: all 0.3s ease-out;
-}
-.services__blocks-item:hover .services__image img {
-    transform: scale(1.05);
 }
 .services__description {
     border: none;
@@ -2192,16 +2194,14 @@ template {
 }
 .footer__text-logo {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    max-width: 632px;
     width: 100%;
+    gap: 40px;
 }
 
 @media screen and (max-width: 992px) {
     .footer__text-logo {
         justify-content: start;
-        gap: 40px;
     }
 }
 @media screen and (max-width: 768px) {
