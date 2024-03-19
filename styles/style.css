@@ -964,10 +964,16 @@ template {
     display: flex;
     flex-direction: row;
     transition: all 0.3s ease-out;
+    cursor: pointer;
 }
 
 .services__blocks-item:hover {
     outline: 10px solid #117630;
+}
+.services__blocks-item:hover .services__blocks-button {
+    background-color: #117630;
+    color: #fff;
+    border: none;
 }
 @media screen and (max-width: 1290px) {
     .services__blocks-item {
@@ -1137,12 +1143,6 @@ template {
     background-size: 0% 100%;
     transition: all 0.3s ease-out;
     margin-bottom: 30px;
-}
-
-.services__blocks-button:hover {
-    background-color: #117630;
-    color: #fff;
-    border: none;
 }
 @media screen and (max-width: 768px) {
     .services__blocks-button {
